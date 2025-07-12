@@ -34,12 +34,12 @@ export default defineUserConfig({
         hostname: 'https://www.jhdev.cn',
 
         /* 文档仓库配置，用于 editLink */
-        docsRepo: 'https://github.com/oh-yey/blog-with-plume-theme',
-        docsDir: 'docs',
-        docsBranch: 'master',
+        // docsRepo: '',
+        // docsDir: '',
+        // docsBranch: 'main',
 
         /* 页内信息 */
-        editLink: true,
+        editLink: false,
         // lastUpdated: true,
         contributors: false,
         changelog: false,
@@ -156,7 +156,7 @@ export default defineUserConfig({
             //     size: true,       // 启用图片大小
             //   },
             //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
-            imageSize: 'all', // 启用 自动填充 图片宽高属性，避免页面抖动
+            //imageSize: 'all', // 启用 自动填充 图片宽高属性，避免页面抖动
         },
 
         /**
