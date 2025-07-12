@@ -19,27 +19,92 @@
  *
  * 通过 `defineNoteConfig` 定义的 note 配置，应该填入 `defineNotesConfig` 的 notes 数组中
  */
-import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
+import {defineNotesConfig} from 'vuepress-theme-plume'
 
-const demoNote = defineNoteConfig({
-  dir: 'demo',
-  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
-  // 如果 前缀不一致，则无法生成侧边栏。
-  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
-  link: '/demo',
-  // 手动配置侧边栏结构
-  sidebar: ['', 'foo', 'bar'],
-  // 根据文件结构自动生成侧边栏
-  // sidebar: 'auto',
-})
-
-/**
- * 导出所有的 note
- * 每一个 note 都应该填入到 `notes.notes` 数组中
- * （DemoNote 为参考示例，如果不需要它，请删除）
- */
 export default defineNotesConfig({
-  dir: 'notes',
-  link: '/',
-  notes: [demoNote],
+    dir: 'markdown/notes/',
+    link: '/',
+    notes: [
+        {
+            dir: 'git',
+            link: '/git/',
+            sidebar: 'auto',
+        },
+        {
+            dir: 'proto',
+            link: '/proto/',
+            sidebar: 'auto',
+        },
+        {
+            dir: 'go',
+            link: '/go/',
+            sidebar: 'auto',
+        },
+        {
+            dir: 'mysql',
+            link: '/mysql/',
+            sidebar: 'auto',
+        },
+        {
+            dir: 'es',
+            link: '/es/',
+            sidebar: 'auto',
+        },
+        {
+            dir: '算法',
+            link: '/algorithm/',
+            sidebar: [
+                '',
+                {
+                    prefix: 'OJ',
+                    text: 'OJ',
+                    icon: 'mdi:code-braces-box',
+                    collapsed: false,
+                    items: 'auto',
+                },
+                {
+                    prefix: 'MySql',
+                    text: 'MySql',
+                    icon: 'mdi:database',
+                    collapsed: false,
+                    items: 'auto',
+                },
+
+            ]
+        },
+        {
+            dir: '设计原则',
+            link: '/designModel/',
+            sidebar: 'auto',
+        },
+        {
+            dir: 'kt',
+            link: '/kt/',
+            sidebar: [
+                '',
+                {
+                    prefix: 'grammar',
+                    text: '语法',
+                    collapsed: false,
+                    items: 'auto',
+                },
+                {
+                    prefix: 'coroutines',
+                    text: '协程',
+                    collapsed: false,
+                    items: 'auto',
+                },
+            ]
+        },
+        {
+            dir: 'android',
+            link: '/android/',
+            sidebar: 'auto',
+        },
+        {
+            dir: '面试',
+            link: '/interview/',
+            sidebar: 'auto',
+        },
+    ],
 })
