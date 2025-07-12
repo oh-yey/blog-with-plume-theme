@@ -38,6 +38,11 @@ jobs:
           # 缓存 pnpm 依赖
           cache: pnpm
 
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.5"
+
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
@@ -47,3 +52,8 @@ jobs:
 
       - name: Deploy to EdgeOne Pages
         run: npx edgeone pages deploy docs/.vuepress/dist -n jhdev -t ${{ secrets.EDGEONE_API_TOKEN }}
+
+      # push sitemap
+      - name: Push Sitemap
+        run: |
+          go run script/seo/main.go
