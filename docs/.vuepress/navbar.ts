@@ -10,7 +10,7 @@ export default defineNavbarConfig([
     {text: '首页', link: '/', icon: 'proicons:home'},
     {text: '博客', link: '/blog/', icon: 'hugeicons:note-edit'},
     // { text: '标签', link: '/blog/tags/' },
-    {text: '归档', link: '/blog/archives/', icon: 'svg-spinners:clock'},
+    {text: '归档', link: '/article/archives/', icon: 'svg-spinners:clock'},
     {
         text: '系列文章',
         icon: 'solar:notes-outline',
