@@ -12,7 +12,8 @@
 import {viteBundler} from '@vuepress/bundler-vite'
 import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics'
 import {sitemapPlugin} from '@vuepress/plugin-sitemap'
-import {defineUserConfig} from 'vuepress'
+import {seoPlugin} from '@vuepress/plugin-seo'
+import {defineUserConfig, PageFrontmatter} from 'vuepress'
 import {plumeTheme} from 'vuepress-theme-plume'
 import {execSync} from 'child_process'
 
@@ -193,28 +194,72 @@ export default defineUserConfig({
                 '/es/command/',
             ],
             modifyTimeGetter: (page, app) => {
-                const filePath = page.filePath
-                if (!filePath) {
-                    console.log(`${page.title} 文件路径获取失败`)
-                    return new Date().toISOString()
-                }
-
-                try {
-                    // 优先使用 Git 提交时间
-                    let timestamp = execSync(`git log -1 --format=%ct -- "${filePath}"`, {encoding: 'utf-8'}).trim()
-                    if (!timestamp) {
-                        // 查询submodule
-                        timestamp = execSync(`git -C docs/markdown log -1 --format=%ct -- "${filePath}"`, {encoding: 'utf-8'}).trim()
-                    }
-                    if (timestamp) {
-                        return new Date(parseInt(timestamp, 10) * 1000).toISOString()
-                    }
-                } catch {
-                }
-
-                console.log(`${filePath}获取时间失败`)
-                return new Date().toISOString()
+                return getFileGitUpdateTime(page.filePath, page.path)
             },
+
+
+        }),
+        seoPlugin({
+            hostname: "https://jhdev.cn",
+            ogp: (ogp, page, app) => {
+                let time = getFileGitUpdateTime(page.filePath, page.path)
+                ogp['og:updated_time'] = time
+                ogp['article:modified_time'] = time
+                ogp['article:author'] = 'jiahao'
+                ogp['article:published_time'] = getPageCreateTime(page.frontmatter, page.path)
+
+                return ogp
+            },
+
+            jsonLd: (jsonLD, page, app) => {
+                let time = getFileGitUpdateTime(page.filePath, page.path)
+                jsonLD['dateModified'] = getPageCreateTime(page.frontmatter, page.path)
+                jsonLD['author'] = ['jiahao']
+
+                return jsonLD
+            }
         }),
     ],
 })
+
+function getPageCreateTime(pf: PageFrontmatter, path: string): string {
+    if (pf?.createTime) {
+        try {
+            const dateStr = String(pf.createTime)
+            const date = new Date(dateStr.replace(/\//g, '-'))
+
+            if (!isNaN(date.getTime())) {
+                return date.toISOString()
+            } else {
+                console.log(`${path} invalid createTime`)
+            }
+        } catch (err) {
+            console.log(`${path} error parsing createTime`, err)
+        }
+    }
+    return new Date().toISOString()
+
+}
+
+function getFileGitUpdateTime(filePath: string, path: string): string {
+    if (!filePath) {
+        console.log(`${path} 文件路径获取失败`)
+        return new Date().toISOString()
+    }
+
+    try {
+        // 优先使用 Git 提交时间
+        let timestamp = execSync(`git log -1 --format=%ct -- "${filePath}"`, {encoding: 'utf-8'}).trim()
+        if (!timestamp) {
+            // 查询submodule
+            timestamp = execSync(`git -C docs/markdown log -1 --format=%ct -- "${filePath}"`, {encoding: 'utf-8'}).trim()
+        }
+        if (timestamp) {
+            return new Date(parseInt(timestamp, 10) * 1000).toISOString()
+        }
+    } catch {
+    }
+
+    console.log(`${path} ${filePath} 获取时间失败`)
+    return new Date().toISOString()
+}
