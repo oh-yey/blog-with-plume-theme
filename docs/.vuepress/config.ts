@@ -73,7 +73,7 @@ export default defineUserConfig({
         //   provider: 'algolia',
         //   appId: '',
         //   apiKey: '',
-        //   indexName: '',
+        //   indices: [''],
         // },
 
         /**
