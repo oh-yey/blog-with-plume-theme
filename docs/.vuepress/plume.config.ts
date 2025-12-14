@@ -15,7 +15,7 @@ import navbar from './navbar'
 import collections from './collections'
 
 /**
- * @see https://theme-plume.vuejs.press/config/basic/
+ * @see https://theme-plume.vuejs.press/config/theme/
  */
 export default defineThemeConfig({
     logo: 'https://s.jhdev.cn/logo.png',
@@ -56,7 +56,7 @@ export default defineThemeConfig({
 
 
     /**
-     * @see https://theme-plume.vuejs.press/config/basic/#profile
+     * @see https://theme-plume.vuejs.press/config/theme/#profile
      */
     profile: {
         avatar: 'https://s.jhdev.cn/head.png',
@@ -81,7 +81,7 @@ export default defineThemeConfig({
     //   content: '公告板内容',
     // },
 
-    /* 过渡动画 @see https://theme-plume.vuejs.press/config/basic/#transition */
+    /* 过渡动画 @see https://theme-plume.vuejs.press/config/theme/#transition */
     transition: {
         page: true,        // 启用 页面间跳转过渡动画
         postList: true,    // 启用 博客文章列表过渡动画
