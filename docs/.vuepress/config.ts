@@ -246,7 +246,7 @@ function getPageCreateTime(pf: PageFrontmatter, path: string): string {
             console.log(`${path} error parsing createTime`, err)
         }
     }
-    return new Date().toISOString()
+    return new Date("2023-05-20").toISOString()
 
 }
 
