@@ -112,7 +112,7 @@ const algorithmDoc = defineCollection({
             prefix: 'OJ',
             text: 'OJ',
             icon: 'mdi:code-braces-box',
-            collapsed: false,
+            collapsed: true,
             items: 'auto',
         },
         {
@@ -126,12 +126,26 @@ const algorithmDoc = defineCollection({
 })
 
 
-const designModelDoc = defineCollection({
+const designDoc = defineCollection({
     type: 'doc',
-    dir: 'markdown/notes/设计原则/',
-    linkPrefix: '/designModel',
-    title: '设计原则',
-    sidebar: 'auto',
+    dir: 'markdown/notes/designs/',
+    linkPrefix: '/designs',
+    title: '程序设计',
+    sidebar: [
+        {
+            prefix: 'design principles',
+            text: '设计原则',
+            collapsed: false,
+            items: 'auto',
+        },
+        {
+            prefix: 'design patterns',
+            text: '设计模式',
+            collapsed: false,
+            items: 'auto',
+        },
+
+    ],
 })
 
 const ktDoc = defineCollection({
@@ -140,7 +154,6 @@ const ktDoc = defineCollection({
     linkPrefix: '/kt',
     title: 'kt',
     sidebar: [
-        '',
         {
             prefix: 'grammar',
             text: '语法',
@@ -172,6 +185,15 @@ const interviewDoc = defineCollection({
     sidebar: 'auto',
 })
 
+
+const dockerComposeDoc = defineCollection({
+    type: 'doc',
+    dir: 'markdown/notes/docker compose/',
+    linkPrefix: '/docker-compose',
+    title: 'docker compose 配置',
+    sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  * (blog 为博客示例，如果不需要博客功能，请删除)
@@ -185,10 +207,11 @@ export default defineCollections([
     mysqlDoc,
     esDoc,
     algorithmDoc,
-    designModelDoc,
+    designDoc,
     ktDoc,
     androidDoc,
     interviewDoc,
+    dockerComposeDoc,
 ])
 
 

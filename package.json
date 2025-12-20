@@ -25,7 +25,8 @@
     "vuepress-theme-plume": "1.0.0-rc.183"
   },
   "dependencies": {
-    "echarts": "^6.0.0"
+    "echarts": "^6.0.0",
+    "mermaid": "^11.12.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

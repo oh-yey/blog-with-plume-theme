@@ -95,8 +95,8 @@ export default defineUserConfig({
          * @see https://theme-plume.vuejs.press/config/markdown/
          */
         markdown: {
-            //   abbr: true,         // 启用 abbr 语法  *[label]: content
-            //   annotation: true,   // 启用 annotation 语法  [+label]: content
+            abbr: true,         // 启用 abbr 语法  *[label]: content
+            annotation: true,   // 启用 annotation 语法  [+label]: content
             //   pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
             //   caniuse: true,      // 启用 caniuse 语法  @[caniuse](feature_name)
             plot: true,         // 启用隐秘文本语法 !!xxxx!!
@@ -124,7 +124,7 @@ export default defineUserConfig({
             //   },
             //   chartjs: true,      // 启用 chart.js
             //   echarts: true,      // 启用 ECharts
-            //   mermaid: true,      // 启用 mermaid
+            mermaid: true,      // 启用 mermaid
             //   flowchart: true,    // 启用 flowchart
             //   image: {
             //     figure: true,     // 启用 figure

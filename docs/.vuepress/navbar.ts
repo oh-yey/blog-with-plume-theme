@@ -15,16 +15,17 @@ export default defineNavbarConfig([
         text: '系列文章',
         icon: 'solar:notes-outline',
         items: [
-            {text: 'git', link: '/git/', icon: 'tabler:brand-git'},
+            {text: 'git', link: '/git/', icon: 'fa7-brands:git'},
             // {text: 'proto', link: '/proto/', icon: 'arcticons:proto'},
-            // {text: 'Go', link: '/go/', icon: 'lineicons:go'},
-            // {text: 'mysql', link: '/mysql/', icon: 'arcticons:dbnavigator-alt'},
+            {text: 'mysql', link: '/mysql/', icon: 'devicon:mysql'},
+            // {text: 'Go', link: '/go/', icon: 'simple-icons:go'},
             // {text: 'ES', link: '/es/', icon: 'simple-icons:elasticstack'},
             {text: '算法', link: '/algorithm/', icon: 'hugeicons:algorithm'},
-            // {text: '设计原则', link: '/designModel/', icon: 'solar:programming-outline'},
-            {text: 'Kotlin', link: '/kt/', icon: 'tabler:brand-kotlin'},
-            {text: 'Android', link: '/android/', icon: 'hugeicons:android'},
+            {text: '设计原则', link: '/designs/design-principles/srp/', icon: 'solar:programming-outline'},
+            // {text: 'Kotlin', link: '/kt/', icon: 'tabler:brand-kotlin'},
+            // {text: 'Android', link: '/android/', icon: 'hugeicons:android'},
             // {text: '面试', link: '/interview/', icon: 'hugeicons:leetcode'},
+            {text: 'docker-compose', link: '/docker-compose/', icon: 'devicon-plain:docker-wordmark'},
         ]
     },
 ])
