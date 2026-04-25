@@ -148,49 +148,59 @@ const designDoc = defineCollection({
     ],
 })
 
-const ktDoc = defineCollection({
+
+const appDoc = defineCollection({
     type: 'doc',
-    dir: 'markdown/notes/kt/',
-    linkPrefix: '/kt',
-    title: 'kt',
+    dir: 'markdown/notes/app/',
+    linkPrefix: '/app',
+    title: 'app',
     sidebar: [
         {
-            prefix: 'grammar',
-            text: '语法',
+            prefix: '1.kotlin',
+            text: 'Kotlin',
+            collapsed: false,
+            items: [
+                {
+                    prefix: 'grammar',
+                    text: '语法',
+                    collapsed: true,
+                    items: 'auto',
+                },
+                {
+                    prefix: 'coroutines',
+                    text: '协程',
+                    collapsed: false,
+                    items: 'auto',
+                },
+            ],
+        },
+        {
+            prefix: '2.android',
+            text: 'Android',
             collapsed: false,
             items: 'auto',
         },
         {
-            prefix: 'coroutines',
-            text: '协程',
+            prefix: '3.flutter',
+            text: 'Flutter',
+            collapsed: false,
+            items: 'auto',
+        },
+        {
+            prefix: '4.harmonyos',
+            text: 'HarmonyOS',
             collapsed: false,
             items: 'auto',
         },
     ],
 })
 
-const androidDoc = defineCollection({
-    type: 'doc',
-    dir: 'markdown/notes/android/',
-    linkPrefix: '/android',
-    title: 'android',
-    sidebar: 'auto',
-})
 
-const interviewDoc = defineCollection({
+const dockerDoc = defineCollection({
     type: 'doc',
-    dir: 'markdown/notes/interview/',
-    linkPrefix: '/interview',
-    title: '面试',
-    sidebar: 'auto',
-})
-
-
-const dockerComposeDoc = defineCollection({
-    type: 'doc',
-    dir: 'markdown/notes/docker compose/',
-    linkPrefix: '/docker-compose',
-    title: 'docker compose 配置',
+    dir: 'markdown/notes/docker/',
+    linkPrefix: '/docker',
+    title: 'docker',
     sidebar: 'auto',
 })
 
@@ -208,10 +218,8 @@ export default defineCollections([
     esDoc,
     algorithmDoc,
     designDoc,
-    ktDoc,
-    androidDoc,
-    interviewDoc,
-    dockerComposeDoc,
+    appDoc,
+    dockerDoc,
 ])
 
 

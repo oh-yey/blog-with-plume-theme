@@ -12,20 +12,25 @@ export default defineNavbarConfig([
     // { text: '标签', link: '/blog/tags/' },
     {text: '归档', link: '/article/archives/', icon: 'svg-spinners:clock'},
     {
-        text: '系列文章',
+        text: '开发笔记',
         icon: 'solar:notes-outline',
         items: [
-            {text: 'git', link: '/git/', icon: 'fa7-brands:git'},
-            // {text: 'proto', link: '/proto/', icon: 'arcticons:proto'},
+            {text: 'Go', link: '/go/', icon: 'simple-icons:go'},
             {text: 'mysql', link: '/mysql/', icon: 'devicon:mysql'},
-            // {text: 'Go', link: '/go/', icon: 'simple-icons:go'},
             // {text: 'ES', link: '/es/', icon: 'simple-icons:elasticstack'},
-            {text: '算法', link: '/algorithm/', icon: 'hugeicons:algorithm'},
+            {text: 'proto', link: '/proto/', icon: 'arcticons:proto'},
+            {text: 'App', link: '/app/', icon: 'carbon:app'},
+        ]
+    },
+    {
+        text: '编程基础',
+        icon: 'solar:library-outline',
+        items: [
+            {text: 'git', link: '/git/', icon: 'fa7-brands:git'},
             {text: '设计原则', link: '/designs/design-principles/srp/', icon: 'solar:programming-outline'},
-            // {text: 'Kotlin', link: '/kt/', icon: 'tabler:brand-kotlin'},
-            // {text: 'Android', link: '/android/', icon: 'hugeicons:android'},
+            {text: '算法', link: '/algorithm/', icon: 'hugeicons:algorithm'},
+            {text: 'docker', link: '/docker/', icon: 'devicon-plain:docker-wordmark'},
             // {text: '面试', link: '/interview/', icon: 'hugeicons:leetcode'},
-            {text: 'docker-compose', link: '/docker-compose/', icon: 'devicon-plain:docker-wordmark'},
         ]
     },
 ])
