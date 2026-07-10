@@ -28,12 +28,12 @@ jobs:
           git submodule update --init --recursive
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          # 选择要使用的 node 版本
+          # Node.js 版本
           node-version: 24
           # 缓存 pnpm 依赖
           cache: pnpm
@@ -41,15 +41,16 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
-          go-version: "1.25.9"
+          go-version: "1.25.12"
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
-      # 运行构建脚本
+      # 构建 VuePress 文档
       - name: Build VuePress site
         run: pnpm docs:build
 
+      # 部署 EdgeOne Pages
       - name: Deploy to EdgeOne Pages
         run: pnpm dlx edgeone pages deploy docs/.vuepress/dist -n jhdev -t ${{ secrets.EDGEONE_API_TOKEN }}
 

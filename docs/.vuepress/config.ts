@@ -178,6 +178,11 @@ export default defineUserConfig({
         //   locale: '/',    // 默认仅为主语言生成 llms 友好内容
         // }
 
+        plugins: {
+            sitemap: false,
+            seo: false,
+        },
+
     }),
 
     plugins: [
@@ -186,46 +191,40 @@ export default defineUserConfig({
         }),
         sitemapPlugin({
             hostname: "https://jhdev.cn",
-            excludePaths: [
-                '/404.html',
-
-                '/git/',
-                '/kt/',
-                '/android/',
-                '/proto/',
-                '/go/',
-                '/mysql/',
-                '/es/',
-                '/algorithm/',
-                '/designModel/',
-                '/interview/',
-
-                '/es/command/',
-            ],
+            excludePaths: [],
             modifyTimeGetter: (page, app) => {
-                return getFileGitUpdateTime(page.filePath, page.path)
+                const createTime = getPageCreateTime(page.frontmatter, page.path);
+                const updateTime = getFileGitUpdateTime(page.filePath, page.path)
+                return new Date(updateTime) < new Date(createTime) ? createTime : updateTime
             },
-
-
         }),
         seoPlugin({
             hostname: "https://jhdev.cn",
             ogp: (ogp, page, app) => {
-                let time = getFileGitUpdateTime(page.filePath, page.path)
-                ogp['og:updated_time'] = time
-                ogp['article:modified_time'] = time
-                ogp['article:author'] = 'jiahao'
-                ogp['article:published_time'] = getPageCreateTime(page.frontmatter, page.path)
+                const createTime = getPageCreateTime(page.frontmatter, page.path);
+                const updateTime = getFileGitUpdateTime(page.filePath, page.path)
+                const modifiedTime = new Date(updateTime) < new Date(createTime) ? createTime : updateTime
 
-                return ogp
+                return {
+                    ...ogp,
+                    'og:updated_time': modifiedTime,
+                    'article:modified_time': modifiedTime,
+                    'article:published_time': createTime,
+                    'article:author': 'jiahao',
+                }
             },
 
             jsonLd: (jsonLD, page, app) => {
-                let time = getFileGitUpdateTime(page.filePath, page.path)
-                jsonLD['dateModified'] = getPageCreateTime(page.frontmatter, page.path)
-                jsonLD['author'] = ['jiahao']
+                const createTime = getPageCreateTime(page.frontmatter, page.path)
+                const updateTime = getFileGitUpdateTime(page.filePath, page.path)
+                const modifiedTime = new Date(updateTime) < new Date(createTime) ? createTime : updateTime
 
-                return jsonLD
+                return {
+                    ...jsonLD,
+                    datePublished: createTime,
+                    dateModified: modifiedTime,
+                    author: {'@type': 'Person', name: 'jiahao'}
+                }
             }
         }),
     ],
@@ -250,7 +249,7 @@ function getPageCreateTime(pf: PageFrontmatter, path: string): string {
 
 }
 
-function getFileGitUpdateTime(filePath: string, path: string): string {
+function getFileGitUpdateTime(filePath: string | undefined | null, path: string): string {
     if (!filePath) {
         console.log(`${path} 文件路径获取失败`)
         return new Date().toISOString()
