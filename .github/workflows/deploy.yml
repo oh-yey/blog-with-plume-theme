@@ -50,9 +50,16 @@ jobs:
       - name: Build VuePress site
         run: pnpm docs:build
 
-      # 部署 EdgeOne Pages
-      - name: Deploy to EdgeOne Pages
-        run: pnpm dlx edgeone pages deploy docs/.vuepress/dist -n jhdev -t ${{ secrets.EDGEONE_API_TOKEN }}
+      # 部署 Cloudflare Pages
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy docs/.vuepress/dist --project-name=ohyey-net
 
       # push sitemap
       - name: Push Sitemap
