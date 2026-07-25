@@ -18,7 +18,7 @@ import collections from './collections'
  * @see https://theme-plume.vuejs.press/config/theme/
  */
 export default defineThemeConfig({
-    logo: 'https://s.jhdev.cn/logo.png',
+    logo: 'https://s.ohyey.net/logo.png',
 
     appearance: true,
 
@@ -51,7 +51,7 @@ export default defineThemeConfig({
     /* 站点页脚 */
     footer: {
         message: '',
-        copyright: 'Copyright © 2024-present 𝓳𝓲𝓪𝓱𝓪𝓸 | <a target="_blank" href="https://beian.miit.gov.cn/">京ICP备2024093044号</a>'
+        copyright: 'Copyright © 2024-present 𝓸𝓱𝔂𝓮𝔂'
     },
 
 
@@ -59,9 +59,9 @@ export default defineThemeConfig({
      * @see https://theme-plume.vuejs.press/config/theme/#profile
      */
     profile: {
-        avatar: 'https://s.jhdev.cn/head.png',
-        name: '𝓳𝓲𝓪𝓱𝓪𝓸',
-        // description: '𝓳𝓲𝓪𝓱𝓪𝓸',
+        avatar: 'https://s.ohyey.net/head.png',
+        name: '𝓸𝓱𝔂𝓮𝔂',
+        // description: '𝓸𝓱𝔂𝓮𝔂',
         circle: true, // 是否为圆形头像
         location: '𝐵𝑒𝒾𝒥𝒾𝓃𝑔, 𝒞𝒽𝒾𝓃𝒶',
         // organization: '',

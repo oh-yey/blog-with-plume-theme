@@ -52,7 +52,7 @@ func parseSitemap(file *os.File) ([]string, error) {
 
 	var urls []string
 	for _, url := range sitemap.URLs {
-		if url.Loc == "https://www.jhdev.cn/" {
+		if url.Loc == "https://ohyey.net/" {
 			continue
 		}
 		urls = append(urls, url.Loc)
@@ -63,9 +63,9 @@ func parseSitemap(file *os.File) ([]string, error) {
 
 func bing(urls []string) {
 	payloadData := map[string]interface{}{
-		"host":        "www.jhdev.cn",
+		"host":        "ohyey.net",
 		"key":         "ed87e10f82b047adbadfcb59688cd55d",
-		"keyLocation": "https://www.jhdev.cn/ed87e10f82b047adbadfcb59688cd55d.txt",
+		"keyLocation": "https://ohyey.net/ed87e10f82b047adbadfcb59688cd55d.txt",
 		"urlList":     urls,
 	}
 

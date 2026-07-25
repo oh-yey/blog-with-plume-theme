@@ -20,11 +20,11 @@ import {execSync} from 'child_process'
 export default defineUserConfig({
     base: '/',
     lang: 'zh-CN',
-    title: '𝓳𝓲𝓪𝓱𝓪𝓸',
+    title: '𝓸𝓱𝔂𝓮𝔂',
     description: '去追寻便好  哪怕是须臾的光亮',
     head: [
         // 配置站点图标
-        ['link', {rel: 'icon', type: 'image/png', href: 'https://s.jhdev.cn/logo.png'}],
+        ['link', {rel: 'icon', type: 'image/png', href: 'https://s.ohyey.net/logo.png'}],
     ],
 
     bundler: viteBundler(),
@@ -32,7 +32,7 @@ export default defineUserConfig({
 
     theme: plumeTheme({
         /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-        hostname: 'https://jhdev.cn',
+        hostname: 'https://ohyey.net',
 
         /* 文档仓库配置，用于 editLink */
         // docsRepo: '',
@@ -190,7 +190,7 @@ export default defineUserConfig({
             id: 'G-SK75WF3JW6',
         }),
         sitemapPlugin({
-            hostname: "https://jhdev.cn",
+            hostname: "https://ohyey.net",
             excludePaths: [],
             modifyTimeGetter: (page, app) => {
                 const createTime = getPageCreateTime(page.frontmatter, page.path);
@@ -199,7 +199,7 @@ export default defineUserConfig({
             },
         }),
         seoPlugin({
-            hostname: "https://jhdev.cn",
+            hostname: "https://ohyey.net",
             ogp: (ogp, page, app) => {
                 const createTime = getPageCreateTime(page.frontmatter, page.path);
                 const updateTime = getFileGitUpdateTime(page.filePath, page.path)

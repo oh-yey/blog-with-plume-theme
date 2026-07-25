@@ -6,7 +6,7 @@
   <router-link to="/blog/" class="head-social-avatar">
     <div class="about-me-name">
       <p>𝐻𝑒𝓁𝓁𝑜, 𝓃𝒾𝒸𝑒 𝓉𝑜 𝓂𝑒𝑒𝓉 𝓎𝑜𝓊 !👋</p>
-      <p class="about-me-card-text-big">你可以叫我 𝓳𝓲𝓪𝓱𝓪𝓸 .</p>
+      <p class="about-me-card-text-big">你可以叫我 𝓸𝓱𝔂𝓮𝔂 .</p>
       <p>是一名全栈开发工程师。</p>
     </div>
   </router-link>

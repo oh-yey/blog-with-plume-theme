@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "去追寻便好  哪怕是须臾的光亮",
-  "packageManager": "pnpm@11.11.0",
+  "packageManager": "pnpm@11.17.0",
   "author": "oh-yey <hhjiahao@gmail.com>",
   "license": "MIT",
   "scripts": {
