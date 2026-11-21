@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "去追寻便好  哪怕是须臾的光亮",
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@12.21.0",
   "author": "oh-yey <hhjiahao@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -15,21 +15,22 @@
     "pnpm install": "npm install -g pnpm@latest"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.30",
-    "@vuepress/plugin-google-analytics": "2.0.0-rc.130",
-    "@vuepress/plugin-seo": "2.0.0-rc.131",
-    "@vuepress/plugin-sitemap": "2.0.0-rc.131",
+    "@vuepress/bundler-vite": "2.0.0-rc.32",
+    "@vuepress/plugin-google-analytics": "2.0.0-rc.138",
+    "@vuepress/plugin-seo": "2.0.0-rc.138",
+    "@vuepress/plugin-sitemap": "2.0.0-rc.138",
     "http-server": "^14.1.1",
     "typescript": "^6.0.3",
-    "vue": "^3.5.39",
-    "vuepress": "2.0.0-rc.30",
-    "vuepress-theme-plume": "1.0.0-rc.204"
+    "vue": "^3.5.43",
+    "vuepress": "2.0.0-rc.32",
+    "vuepress-plugin-md-power": "1.0.0-rc.219",
+    "vuepress-theme-plume": "1.0.0-rc.219"
   },
   "dependencies": {
     "echarts": "^6.1.0",
-    "mermaid": "^11.16.0"
+    "mermaid": "^12.3.0"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.0.0"
+    "node": "^20.19.0 || >=22.12.0"
   }
 }
